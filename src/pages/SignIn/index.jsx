@@ -1,6 +1,9 @@
-import { Container } from "./styles"
+import { Container, Form } from "./styles"
+
+import { Link } from "react-router-dom"
 
 import { Field } from "../../components/Field"
+import { Button } from "../../components/Button"
 
 export function SignIn() {
 	return (
@@ -8,17 +11,24 @@ export function SignIn() {
 			<Container>
 				<img src="./logo.png" alt="Food Explorer logo" />
 
-				<Field
-					label="Email"
-					placeholder="Exemplo: exemplo@exemplo.com.br"
-					type="email"
-				/>
+				<Form>
+					<Field
+						label="Email"
+						placeholder="Exemplo: exemplo@exemplo.com.br"
+						type="email"
+					/>
 
-				<Field
-					label="Senha"
-					placeholder="No mínimo 6 caracteres"
-					type="password"
-				/>
+					<Field
+						label="Senha"
+						placeholder="No mínimo 6 caracteres"
+						type="password"
+					/>
+
+					<Button title="Entrar" />
+				</Form>
+
+				{/* <Link to="/register">Criar uma conta</Link> */}
+				<a href="/register">Criar uma conta</a>
 			</Container>
 		</>
 	)
