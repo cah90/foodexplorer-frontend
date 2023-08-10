@@ -1,14 +1,25 @@
 import { Container } from "./styles"
 
+import { Field } from "../../components/Field"
+
 export function SignIn() {
 	return (
 		<>
 			<Container>
-				<h1>Hello World!</h1>
-				<h1>Olá!</h1>
-			</Container>
+				<img src="./logo.png" alt="Food Explorer logo" />
 
-			<h1>Hola!</h1>
+				<Field
+					label="Email"
+					placeholder="Exemplo: exemplo@exemplo.com.br"
+					type="email"
+				/>
+
+				<Field
+					label="Senha"
+					placeholder="No mínimo 6 caracteres"
+					type="password"
+				/>
+			</Container>
 		</>
 	)
 }
