@@ -11,24 +11,28 @@ export function SignIn() {
 			<Container>
 				<img src="./logo.png" alt="Food Explorer logo" />
 
-				<Form>
-					<Field
-						label="Email"
-						placeholder="Exemplo: exemplo@exemplo.com.br"
-						type="email"
-					/>
+				<div className="wrapper">
+					<Form>
+						<h2>Faça login</h2>
 
-					<Field
-						label="Senha"
-						placeholder="No mínimo 6 caracteres"
-						type="password"
-					/>
+						<Field
+							label="Email"
+							placeholder="Exemplo: exemplo@exemplo.com.br"
+							type="email"
+						/>
 
-					<Button title="Entrar" />
-				</Form>
+						<Field
+							label="Senha"
+							placeholder="No mínimo 6 caracteres"
+							type="password"
+						/>
 
-				{/* <Link to="/register">Criar uma conta</Link> */}
-				<a href="/register">Criar uma conta</a>
+						<Button title="Entrar" />
+					</Form>
+
+					{/* <Link to="/register">Criar uma conta</Link> */}
+					<a href="/register">Criar uma conta</a>
+				</div>
 			</Container>
 		</>
 	)
