@@ -36,8 +36,8 @@ export function SignUp() {
 						<Button title="Criar conta" />
 					</Form>
 
-					{/* <Link to="/">Já tenho uma conta</Link> */}
-					<a href="/">Já tenho uma conta</a>
+					<Link to="/">Já tenho uma conta</Link>
+					{/* <a href="/">Já tenho uma conta</a> */}
 				</div>
 			</Container>
 		</>

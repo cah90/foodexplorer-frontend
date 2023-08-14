@@ -30,8 +30,8 @@ export function SignIn() {
 						<Button title="Entrar" />
 					</Form>
 
-					{/* <Link to="/register">Criar uma conta</Link> */}
-					<a href="/register">Criar uma conta</a>
+					<Link to="/register">Criar uma conta</Link>
+					{/* <a href="/register">Criar uma conta</a> */}
 				</div>
 			</Container>
 		</>
