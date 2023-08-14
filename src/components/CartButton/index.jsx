@@ -2,11 +2,14 @@ import { Container } from "./styles"
 
 import { PiReceiptLight } from "react-icons/pi"
 
-export function CartButton() {
+export function CartButton({ title, cart }) {
 	return (
 		<Container>
-			<div className="count">0</div>
 			<PiReceiptLight />
+			<p>
+				{title} ({cart})
+			</p>
+			<div className="count">{cart}</div>
 		</Container>
 	)
 }

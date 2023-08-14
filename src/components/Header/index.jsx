@@ -4,6 +4,7 @@ import { Input } from "../Input"
 
 import { FiMenu, FiSearch } from "react-icons/fi"
 import { VscClose } from "react-icons/vsc"
+import { RxExit } from "react-icons/rx"
 
 import { useState } from "react"
 import { Link } from "react-router-dom"
@@ -23,7 +24,7 @@ export function Header() {
 
 					<img src="/logo.png" alt="Logo do Food Explorer" />
 
-					<CartButton />
+					<CartButton title={"Pedidos"} cart={3} />
 				</>
 			)}
 

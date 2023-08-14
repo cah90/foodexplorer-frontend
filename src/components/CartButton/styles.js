@@ -26,8 +26,32 @@ export const Container = styled.div`
 		right: 0;
 	}
 
+	> p {
+		display: none;
+	}
+
 	> svg {
 		color: ${({ theme }) => theme.COLORS.LIGHT_100};
 		font-size: 3.2rem;
+	}
+
+	@media (min-width: 768px) {
+		background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+
+		gap: 0.8rem;
+
+		width: initial;
+		height: initial;
+		padding: 1.2rem 3.2rem;
+		border-radius: 0.5rem;
+
+		.count {
+			display: none;
+		}
+
+		> p {
+			display: inline-block;
+			color: ${({ theme }) => theme.COLORS.LIGHT_100};
+		}
 	}
 `
