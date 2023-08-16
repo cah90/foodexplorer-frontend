@@ -9,6 +9,8 @@ export const Container = styled.div`
 
 	position: relative;
 
+	cursor: pointer;
+
 	.count {
 		background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 		width: 2rem;
@@ -35,14 +37,14 @@ export const Container = styled.div`
 		font-size: 3.2rem;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 1024px) {
 		background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
 		gap: 0.8rem;
 
 		width: initial;
 		height: initial;
-		padding: 1.2rem 3.2rem;
+		padding: 0.9rem 3.2rem;
 		border-radius: 0.5rem;
 
 		.count {
@@ -52,6 +54,8 @@ export const Container = styled.div`
 		> p {
 			display: inline-block;
 			color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+			font-size: 1.4rem;
 		}
 	}
 `

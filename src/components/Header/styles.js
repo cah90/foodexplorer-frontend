@@ -11,13 +11,43 @@ export const Container = styled.header`
 
 	width: 100%;
 
-	> svg {
+	.menu {
 		color: ${({ theme }) => theme.COLORS.LIGHT_100};
 		font-size: 2.4rem;
 	}
 
+	.exit {
+		display: none;
+	}
+
+	.input-desktop {
+		display: none;
+	}
+
 	> img {
 		width: 16rem;
+	}
+
+	@media (min-width: 1024px) {
+		justify-content: center;
+		gap: 3.2rem;
+
+		.menu {
+			display: none;
+		}
+
+		.input-desktop {
+			display: initial;
+			flex-basis: 40rem;
+		}
+
+		.exit {
+			display: initial;
+			color: ${({ theme }) => theme.COLORS.LIGHT_100};
+			font-size: 3.2rem;
+
+			cursor: pointer;
+		}
 	}
 `
 
@@ -69,5 +99,9 @@ export const Nav = styled.nav`
 
 		font-size: 2rem;
 		font-weight: 300;
+	}
+
+	@media (min-width: 900px) {
+		display: none;
 	}
 `

@@ -20,11 +20,20 @@ export function Header() {
 		<Container>
 			{!showNav && (
 				<>
-					<FiMenu onClick={toggleNav} />
+					<FiMenu className="menu" onClick={toggleNav} />
 
 					<img src="/logo.png" alt="Logo do Food Explorer" />
 
+					<div className="input-desktop">
+						<Input
+							icon={FiSearch}
+							placeholder={"Busque por pratos ou ingredientes"}
+						/>
+					</div>
+
 					<CartButton title={"Pedidos"} cart={3} />
+
+					<RxExit className="exit" />
 				</>
 			)}
 
