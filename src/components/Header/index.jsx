@@ -1,8 +1,8 @@
-import { Container, Nav } from "./styles"
-import { CartButton } from "../CartButton"
+import { Container, ButtonCartMobile, NavMobile } from "./styles"
 import { Input } from "../Input"
 
 import { FiMenu, FiSearch } from "react-icons/fi"
+import { PiReceiptLight } from "react-icons/pi"
 import { VscClose } from "react-icons/vsc"
 import { RxExit } from "react-icons/rx"
 
@@ -24,34 +24,29 @@ export function Header() {
 
 					<img src="/logo.png" alt="Logo do Food Explorer" />
 
-					<div className="input-desktop">
-						<Input
-							icon={FiSearch}
-							placeholder={"Busque por pratos ou ingredientes"}
-						/>
-					</div>
-
-					<CartButton title={"Pedidos"} cart={3} />
-
-					<RxExit className="exit" />
+					<ButtonCartMobile type="button">
+						<PiReceiptLight />
+						<div className="counter">0</div>
+					</ButtonCartMobile>
 				</>
 			)}
 
 			{showNav && (
-				<Nav>
-					<header>
-						<VscClose onClick={toggleNav} />
-						<p>Menu</p>
-					</header>
+				<>
+					<NavMobile>
+						<header>
+							<VscClose onClick={toggleNav} />
+							<p>Menu</p>
+						</header>
 
-					<Input
-						icon={FiSearch}
-						placeholder={"Busque por pratos ou ingredientes"}
-					/>
+						<Input
+							icon={FiSearch}
+							placeholder={"Busque por pratos ou ingredientes"}
+						/>
 
-					<Link to="#">Sair</Link>
-					{/* <a href="#">Sair</a> */}
-				</Nav>
+						<Link to="#">Sair</Link>
+					</NavMobile>
+				</>
 			)}
 		</Container>
 	)

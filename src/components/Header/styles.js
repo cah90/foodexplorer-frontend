@@ -1,59 +1,57 @@
 import styled from "styled-components"
 
 export const Container = styled.header`
-	background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
 	display: flex;
-	justify-content: space-around;
+	gap: 1.6rem;
 	align-items: center;
+	justify-content: space-evenly;
 
-	padding: 5.6rem 0 2.4rem;
+	padding: 5.6rem 2.8rem 2.4rem;
 
-	width: 100%;
-
-	.menu {
+	> svg {
 		color: ${({ theme }) => theme.COLORS.LIGHT_100};
 		font-size: 2.4rem;
 	}
 
-	.exit {
-		display: none;
-	}
-
-	.input-desktop {
-		display: none;
-	}
-
 	> img {
-		width: 16rem;
-	}
-
-	@media (min-width: 1024px) {
-		justify-content: center;
-		gap: 3.2rem;
-
-		.menu {
-			display: none;
-		}
-
-		.input-desktop {
-			display: initial;
-			flex-basis: 40rem;
-		}
-
-		.exit {
-			display: initial;
-			color: ${({ theme }) => theme.COLORS.LIGHT_100};
-			font-size: 3.2rem;
-
-			cursor: pointer;
-		}
+		height: 2.5rem;
 	}
 `
 
-export const Nav = styled.nav`
+export const ButtonCartMobile = styled.div`
+	display: flex;
+	align-items: center;
+
+	padding: 0.4rem;
+
+	position: relative;
+
+	.counter {
+		background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+		width: 2rem;
+		border-radius: 100%;
+
+		font-size: 1.4rem;
+		font-weight: 500;
+		line-height: 2.4rem;
+		color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+		text-align: center;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	> svg {
+		color: ${({ theme }) => theme.COLORS.LIGHT_100};
+		font-size: 3.2rem;
+	}
+`
+
+export const NavMobile = styled.div`
+	/* background-color: ${({ theme }) => theme.COLORS.DARK_700}; */
 	width: 100%;
-	padding: 0 2.8rem;
 
 	animation: nav 1s ease 0s 1 normal forwards;
 
@@ -70,8 +68,6 @@ export const Nav = styled.nav`
 	}
 
 	header {
-		background-color: ${({ theme }) => theme.COLORS.DARK_700};
-
 		display: flex;
 		align-items: center;
 		gap: 1.6rem;
@@ -99,9 +95,5 @@ export const Nav = styled.nav`
 
 		font-size: 2rem;
 		font-weight: 300;
-	}
-
-	@media (min-width: 900px) {
-		display: none;
 	}
 `

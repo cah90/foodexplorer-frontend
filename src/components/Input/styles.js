@@ -6,10 +6,10 @@ export const Container = styled.div`
 	align-items: center;
 
 	width: 100%;
+	padding: 1.2rem 1.4rem;
 	background-color: ${({ theme }) => theme.COLORS.DARK_900};
 
 	border-radius: 0.5rem;
-	padding: 1.2rem 1.4rem;
 
 	> svg {
 		color: ${({ theme }) => theme.COLORS.LIGHT_500};
@@ -17,10 +17,10 @@ export const Container = styled.div`
 	}
 
 	> input {
-		width: 100%;
-
 		border: none;
 		background-color: transparent;
+		outline: none;
+		width: 100%;
 
 		font-family: var(--ff-roboto);
 		font-size: 1.6rem;

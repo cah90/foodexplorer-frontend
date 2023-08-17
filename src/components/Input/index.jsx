@@ -1,10 +1,12 @@
 import { Container } from "./styles"
 
 export function Input({ icon: Icon, ...rest }) {
+	const { containerclass, ...inputProps } = rest
+
 	return (
-		<Container>
+		<Container className={containerclass}>
 			{Icon && <Icon />}
-			<input {...rest} />
+			<input {...inputProps} />
 		</Container>
 	)
 }

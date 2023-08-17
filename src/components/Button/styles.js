@@ -13,4 +13,6 @@ export const Container = styled.div`
 	font-weight: 500;
 	line-height: 2.4rem;
 	color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+	cursor: pointer;
 `
