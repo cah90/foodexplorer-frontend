@@ -1,6 +1,9 @@
 import styled from "styled-components"
 
+import { motion } from "framer-motion"
+
 export const Container = styled.header`
+	position: relative;
 	display: flex;
 	gap: 1.6rem;
 	align-items: center;
@@ -49,11 +52,13 @@ export const ButtonCartMobile = styled.div`
 	}
 `
 
-export const NavMobile = styled.div`
+export const NavMobile = styled(motion.div)`
 	/* background-color: ${({ theme }) => theme.COLORS.DARK_700}; */
 	width: 100%;
+	position: absolute;
+	top: 5.6rem;
 
-	animation: nav 1s ease 0s 1 normal forwards;
+	/* animation: nav 1s ease 0s 1 normal forwards;
 
 	@keyframes nav {
 		0% {
@@ -65,7 +70,7 @@ export const NavMobile = styled.div`
 			opacity: 1;
 			transform: translateY(0);
 		}
-	}
+	} */
 
 	header {
 		display: flex;
