@@ -2,26 +2,7 @@ import styled from "styled-components"
 
 import { motion } from "framer-motion"
 
-export const Container = styled.header`
-	position: relative;
-	display: flex;
-	gap: 1.6rem;
-	align-items: center;
-	justify-content: space-evenly;
-
-	padding: 5.6rem 2.8rem 2.4rem;
-
-	> svg {
-		color: ${({ theme }) => theme.COLORS.LIGHT_100};
-		font-size: 2.4rem;
-	}
-
-	> img {
-		height: 2.5rem;
-	}
-`
-
-export const ButtonCartMobile = styled.div`
+export const ButtonCart = styled.div`
 	display: flex;
 	align-items: center;
 
@@ -52,25 +33,82 @@ export const ButtonCartMobile = styled.div`
 	}
 `
 
+export const Container = styled.header`
+	position: relative;
+	display: flex;
+	gap: 1.6rem;
+	align-items: center;
+	justify-content: space-evenly;
+
+	padding: 5.6rem 2.8rem 2.4rem;
+
+	background-color: ${({ theme }) => theme.COLORS.DARK_600};
+
+	> svg {
+		color: ${({ theme }) => theme.COLORS.LIGHT_100};
+		font-size: 2.4rem;
+	}
+
+	> img {
+		height: 2.5rem;
+	}
+
+	.exit {
+		display: none;
+	}
+
+	.input-desktop {
+		display: none;
+	}
+
+	.button-desktop {
+		display: none;
+	}
+
+	@media (min-width: 1024px) {
+		gap: 3.2rem;
+		padding: 2.4rem 12.3rem;
+
+		.menu {
+			display: none;
+		}
+
+		.exit {
+			display: initial;
+			min-width: 3.2rem;
+
+			cursor: pointer;
+		}
+
+		.exit:hover {
+			color: ${({ theme }) => theme.COLORS.CAKE_200};
+		}
+
+		.input-desktop {
+			display: initial;
+			width: 100%;
+			/* min-width: 58rem; */
+		}
+
+		.button-mobile {
+			display: none;
+		}
+
+		.button-desktop {
+			display: initial;
+			width: 21.6rem;
+		}
+	}
+`
+
 export const NavMobile = styled(motion.div)`
-	/* background-color: ${({ theme }) => theme.COLORS.DARK_700}; */
 	width: 100%;
 	position: absolute;
-	top: 5.6rem;
+	top: -170px;
 
-	/* animation: nav 1s ease 0s 1 normal forwards;
+	padding: 5.6rem 2.8rem 2.8rem;
 
-	@keyframes nav {
-		0% {
-			opacity: 0;
-			transform: translateY(-50px);
-		}
-
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	} */
+	background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
 	header {
 		display: flex;
@@ -97,8 +135,14 @@ export const NavMobile = styled(motion.div)`
 
 	a {
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
 		font-size: 2rem;
 		font-weight: 300;
+
+		border-bottom: ${({ theme }) => theme.COLORS.DARK_1000};
+
+		display: inline-block;
+		width: 100%;
+
+		padding: 1rem 0;
 	}
 `

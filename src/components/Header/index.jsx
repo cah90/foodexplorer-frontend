@@ -1,30 +1,31 @@
-import { Container, ButtonCartMobile, NavMobile } from "./styles"
+import { Container, ButtonCart, NavMobile } from "./styles"
 import { Input } from "../Input"
+import { Button } from "../Button"
 
 import { FiMenu, FiSearch } from "react-icons/fi"
 import { PiReceiptLight } from "react-icons/pi"
-import { VscClose } from "react-icons/vsc"
 import { RxExit } from "react-icons/rx"
+import { VscClose } from "react-icons/vsc"
 
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import { AnimatePresence, useCycle } from "framer-motion"
 
 export function Header() {
 	const [showNav, toggleNav] = useCycle(false, true)
 
+	let spring = { type: "spring", bounce: 0.25, duration: 0.8 }
+
 	let variants = {
 		hidden: {
+			y: 0,
 			opacity: 0,
+			transition: spring,
 		},
 
 		visible: {
+			y: 170,
 			opacity: 1,
-			transition: { type: "spring", stiffness: 90 },
-		},
-
-		exit: {
-			opacity: 0,
+			transition: spring,
 		},
 	}
 	return (
@@ -36,10 +37,23 @@ export function Header() {
 
 						<img src="/logo.png" alt="Logo do Food Explorer" />
 
-						<ButtonCartMobile type="button">
+						<div className="input-desktop">
+							<Input
+								placeholder="Busque por pratos ou ingredientes"
+								icon={FiSearch}
+							/>
+						</div>
+
+						<ButtonCart className="button-mobile" type="button">
 							<PiReceiptLight />
 							<div className="counter">0</div>
-						</ButtonCartMobile>
+						</ButtonCart>
+
+						<div className="button-desktop">
+							<Button icon={PiReceiptLight} title={`Pedidos(${0})`} />
+						</div>
+
+						<RxExit className="exit" />
 					</>
 				)}
 			</Container>
@@ -58,7 +72,7 @@ export function Header() {
 
 						<Input
 							icon={FiSearch}
-							placeholder={"Busque por pratos ou ingredientes"}
+							placeholder="Busque por pratos ou ingredientes"
 						/>
 
 						<Link to="#">Sair</Link>
