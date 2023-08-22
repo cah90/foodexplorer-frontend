@@ -40,7 +40,7 @@ export const Container = styled.header`
 	align-items: center;
 	justify-content: space-evenly;
 
-	padding: 5.6rem 2.8rem 2.4rem;
+	padding: 2.4rem 2.8rem;
 
 	background-color: ${({ theme }) => theme.COLORS.DARK_600};
 

@@ -1,6 +1,7 @@
 import { Container, Wrapper, Hero, Section } from "./styles"
 
 import { Header } from "../../components/Header"
+import { Footer } from "../../components/Footer"
 import { Card } from "../../components/Card"
 
 export function Home() {
@@ -28,6 +29,8 @@ export function Home() {
 					</div>
 				</Section>
 			</Wrapper>
+
+			<Footer />
 		</Container>
 	)
 }
