@@ -103,8 +103,10 @@ export const Container = styled.header`
 
 export const NavMobile = styled(motion.div)`
 	width: 100%;
+
 	position: absolute;
 	top: -170px;
+	z-index: 2;
 
 	padding: 5.6rem 2.8rem 2.8rem;
 
