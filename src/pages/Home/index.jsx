@@ -1,13 +1,14 @@
-import { Container, Wrapper } from "./styles"
+import { Container, Wrapper, Hero, Section } from "./styles"
 
 import { Header } from "../../components/Header"
+import { Card } from "../../components/Card"
 
 export function Home() {
 	return (
 		<Container>
 			<Header />
 			<Wrapper>
-				<div className="hero">
+				<Hero>
 					<img
 						src="/src/assets/images/image-home.png"
 						alt="Imagem de alguns biscoitos coloridos"
@@ -17,7 +18,15 @@ export function Home() {
 						<h2>Sabores inigualáveis</h2>
 						<p>Sinta o cuidado do preparo com ingredientes selecionados</p>
 					</div>
-				</div>
+				</Hero>
+
+				<Section>
+					<h2>Refeições</h2>
+
+					<div className="cards">
+						<Card />
+					</div>
+				</Section>
 			</Wrapper>
 		</Container>
 	)
