@@ -15,6 +15,19 @@ export const Container = styled.div`
 
 	position: relative;
 
+	.favorite-filled {
+		color: ${({ theme }) => theme.COLORS.TOMATO_100};
+	}
+
+	.add-items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.6rem;
+
+		width: 100%;
+	}
+
 	> svg {
 		position: absolute;
 		top: 1.6rem;
@@ -24,10 +37,6 @@ export const Container = styled.div`
 
 		font-size: 2.4rem;
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
-	}
-
-	.favorite-filled {
-		color: ${({ theme }) => theme.COLORS.TOMATO_100};
 	}
 
 	> img {
@@ -53,36 +62,15 @@ export const Container = styled.div`
 		color: ${({ theme }) => theme.COLORS.CAKE_200};
 	}
 
-	.add-items {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		width: 100%;
-
-		.counter {
-			color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-			display: flex;
-			align-items: center;
-			gap: 1.4rem;
-
-			font-size: 1.6rem;
-
-			margin-bottom: 1.6rem;
-
-			button {
-				background: none;
-				border: none;
-				color: ${({ theme }) => theme.COLORS.LIGHT_300};
-				font-size: 2.4rem;
-			}
-		}
-	}
-
 	@media (min-width: 1024px) {
 		max-width: 30rem;
 		padding: 2.4rem;
+
+		.add-items {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
 
 		> h3,
 		a {
@@ -105,22 +93,6 @@ export const Container = styled.div`
 
 		> span {
 			font-size: 3.2rem;
-		}
-
-		.add-items {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			gap: 1.6rem;
-
-			.counter {
-				font-size: 2rem;
-				margin: 2.4rem 0;
-			}
-
-			> div[type="button"] {
-				max-width: 9.2rem;
-			}
 		}
 	}
 `

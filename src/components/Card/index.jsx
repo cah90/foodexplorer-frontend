@@ -3,22 +3,12 @@ import { Container } from "./styles"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
 import { Button } from "../Button"
+import { Counter } from "../Counter"
 
 import { useState } from "react"
 
 export function Card() {
-	const [count, setCount] = useState(0)
 	const [favorite, setFavorite] = useState(false)
-
-	const decrease = () => {
-		if (count > 0) {
-			setCount(count - 1)
-		}
-	}
-
-	const increase = () => {
-		setCount(count + 1)
-	}
 
 	const toggleFavorite = () => {
 		setFavorite(!favorite)
@@ -42,11 +32,7 @@ export function Card() {
 			<span>R$ 49,90</span>
 
 			<div className="add-items">
-				<div className="counter">
-					<button onClick={decrease}> - </button>
-					<span> {count} </span>
-					<button onClick={increase}> + </button>
-				</div>
+				<Counter />
 
 				<Button title="incluir" />
 			</div>
