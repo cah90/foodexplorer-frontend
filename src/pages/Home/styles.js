@@ -106,12 +106,19 @@ export const Hero = styled.div`
 `
 
 export const Section = styled.section`
+	margin-bottom: 6.4rem;
+
 	h2 {
 		font-size: 1.8rem;
 		font-weight: 500;
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
 		margin-bottom: 2.4rem;
+	}
+
+	.cards {
+		display: flex;
+		gap: 5.5rem;
 	}
 
 	@media (min-width: 1024px) {

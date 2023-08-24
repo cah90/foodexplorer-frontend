@@ -52,6 +52,8 @@ export const Container = styled.div`
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 		font-size: 1.4rem;
 		font-weight: 500;
+
+		text-align: center;
 	}
 
 	> span {
@@ -63,7 +65,7 @@ export const Container = styled.div`
 	}
 
 	@media (min-width: 1024px) {
-		max-width: 30rem;
+		max-width: 30.4rem;
 		padding: 2.4rem;
 
 		.add-items {
@@ -93,6 +95,12 @@ export const Container = styled.div`
 
 		> span {
 			font-size: 3.2rem;
+
+			margin: 1.5rem 0;
+		}
+
+		div[type="button"] {
+			max-width: 9rem;
 		}
 	}
 `

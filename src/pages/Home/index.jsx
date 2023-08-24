@@ -4,6 +4,11 @@ import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
 import { Card } from "../../components/Card"
 
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/navigation"
+
 export function Home() {
 	return (
 		<>
@@ -24,9 +29,36 @@ export function Home() {
 				<Section>
 					<h2>Refeições</h2>
 
-					<div className="cards">
-						<Card />
-					</div>
+					<Swiper
+						navigation={true}
+						modules={[Navigation]}
+						slidesPerView={2}
+						breakpoints={{
+							768: {
+								slidesPerView: 3,
+							},
+							1024: {
+								slidesPerView: 3,
+							},
+						}}
+						className="cards"
+					>
+						<SwiperSlide>
+							<Card />
+						</SwiperSlide>
+						<SwiperSlide>
+							<Card />
+						</SwiperSlide>
+						<SwiperSlide>
+							<Card />
+						</SwiperSlide>
+						<SwiperSlide>
+							<Card />
+						</SwiperSlide>
+						<SwiperSlide>
+							<Card />
+						</SwiperSlide>
+					</Swiper>
 				</Section>
 			</Wrapper>
 
