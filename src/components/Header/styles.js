@@ -38,7 +38,7 @@ export const Container = styled.header`
 	display: flex;
 	gap: 1.6rem;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
 
 	padding: 2.4rem 2.8rem;
 
