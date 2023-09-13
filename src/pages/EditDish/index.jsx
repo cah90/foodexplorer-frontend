@@ -8,7 +8,7 @@ import { Textarea } from "../../components/Textarea"
 import { IngredientItem } from "../../components/IngredientItem"
 import { Footer } from "../../components/Footer"
 
-export function NewDish() {
+export function EditDish() {
 	return (
 		<Container>
 			<Header />
@@ -16,7 +16,7 @@ export function NewDish() {
 			<Wrapper>
 				<ButtonText title="voltar" />
 
-				<h1>Novo prato</h1>
+				<h1>Editar prato</h1>
 				<div className="main">
 					<InputFile>
 						<label>Imagem do prato</label>
@@ -92,7 +92,10 @@ export function NewDish() {
 						<Textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição."></Textarea>
 					</div>
 
-					<Button title="Salvar" className="button" />
+					<div className="buttons">
+						<Button title="Excluir prato" className="btn-delete" />
+						<Button title="Salvar" className="btn-save" />
+					</div>
 				</div>
 			</Wrapper>
 

@@ -48,6 +48,15 @@ export const Wrapper = styled.div`
 			background-color: ${({ theme }) => theme.COLORS.DARK_800};
 			border-radius: 0.8rem;
 		}
+
+		.buttons {
+			display: flex;
+			gap: 3.2rem;
+		}
+
+		.btn-delete {
+			background-color: ${({ theme }) => theme.COLORS.DARK_800};
+		}
 	}
 
 	@media (min-width: 1024px) {
@@ -62,7 +71,7 @@ export const Wrapper = styled.div`
 				"imagem name categories"
 				"ingredients ingredients price"
 				"description description description"
-				". . button";
+				". . buttons";
 		}
 
 		.file {
@@ -89,8 +98,8 @@ export const Wrapper = styled.div`
 			grid-area: description;
 		}
 
-		.button {
-			grid-area: button;
+		.buttons {
+			grid-area: buttons;
 		}
 	}
 `

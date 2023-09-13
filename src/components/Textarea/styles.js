@@ -17,6 +17,8 @@ export const Container = styled.textarea`
 	border-radius: 0.8rem;
 	border: none;
 
+	outline: none;
+
 	&::placeholder {
 		color: ${({ theme }) => theme.COLORS.LIGHT_500};
 	}

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.button`
 	width: 100%;
 	padding: 1.2rem 1.2rem;
 	display: flex;
@@ -10,7 +10,9 @@ export const Container = styled.div`
 
 	background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 	border-radius: 0.5rem;
+	border: none;
 
+	font-family: var(--ff-poppins);
 	font-size: 1.4rem;
 	font-weight: 500;
 	line-height: 2.4rem;
