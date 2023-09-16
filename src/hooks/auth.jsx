@@ -9,23 +9,23 @@ function AuthProvider({ children }) {
 
 	async function signIn({ email, password }) {
 		console.log("passei aqui")
-		try {
-			const response = await api.post(
-				"sessions",
-				{ email, password },
-				{ withCredentials: true }
-			)
-			const { user } = response.data
-			localStorage.setItem("@stock:user", JSON.stringify(user))
+		// try {
+		// 	const response = await api.post(
+		// 		"sessions",
+		// 		{ email, password },
+		// 		{ withCredentials: true }
+		// 	)
+		// 	const { user } = response.data
+		// 	localStorage.setItem("@stock:user", JSON.stringify(user))
 
-			setData({ user })
-		} catch (error) {
-			if (error.response) {
-				alert(error.response.data.message)
-			} else {
-				alert("Não foi possível entrar.")
-			}
-		}
+		// 	setData({ user })
+		// } catch (error) {
+		// 	if (error.response) {
+		// 		alert(error.response.data.message)
+		// 	} else {
+		// 		alert("Não foi possível entrar.")
+		// 	}
+		// }
 	}
 
 	function signOut() {

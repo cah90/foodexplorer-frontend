@@ -10,10 +10,9 @@ import { Button } from "../../components/Button"
 export function SignIn() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-
 	const { signIn } = useAuth()
 
-	function handleSignIn() {
+	function handleSignIn(e) {
 		signIn({ email, password })
 	}
 
