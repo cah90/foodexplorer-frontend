@@ -1,13 +1,22 @@
 import { Container } from "./styles"
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import { BsPencil, BsPencilFill } from "react-icons/bs"
 
 import { Button } from "../Button"
 import { Counter } from "../Counter"
 
 import { useState } from "react"
 
-export function Card() {
+export function Card({
+	img,
+	name,
+	id,
+	description,
+	price,
+	isAdmin,
+	buttonTitle,
+}) {
 	const [favorite, setFavorite] = useState(false)
 
 	const toggleFavorite = () => {
@@ -16,26 +25,31 @@ export function Card() {
 
 	return (
 		<Container>
-			{favorite ? (
+			{isAdmin ? (
+				favorite ? (
+					<BsPencilFill onClick={toggleFavorite} />
+				) : (
+					<BsPencil onClick={toggleFavorite} />
+				)
+			) : favorite ? (
 				<AiFillHeart className="favorite-filled" onClick={toggleFavorite} />
 			) : (
-				<AiOutlineHeart
-					className="favorite-unfilled"
-					onClick={toggleFavorite}
-				/>
+				<AiOutlineHeart onClick={toggleFavorite} />
 			)}
-			<img src="./src/assets/images/salada.png" alt="Foto de um prato" />
+			<img src={img} alt="Foto de um prato" />
 			<h3>
-				<a href="#">Salada Ravanello &gt;</a>
+				<a href={`dishes/details/${id}`}>{name} &gt;</a>
 			</h3>
-			<p>Massa fresca com camarões e pesto. </p>
-			<span>R$ 49,90</span>
+			<p>{description}</p>
+			<span>R$ {price}</span>
 
-			<div className="add-items">
-				<Counter />
+			{!isAdmin && (
+				<div className="add-items">
+					<Counter />
 
-				<Button title="incluir" />
-			</div>
+					<Button title={buttonTitle} />
+				</div>
+			)}
 		</Container>
 	)
 }

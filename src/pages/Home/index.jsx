@@ -1,5 +1,7 @@
 import { Wrapper, Hero, Section } from "./styles"
 
+import { useAuth } from "../../hooks/auth"
+
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
 import { Card } from "../../components/Card"
@@ -10,6 +12,10 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 export function Home() {
+	const { user } = useAuth()
+
+	const isAdmin = user.role == "admin"
+
 	return (
 		<>
 			<Header />
@@ -44,19 +50,14 @@ export function Home() {
 						className="cards"
 					>
 						<SwiperSlide>
-							<Card />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Card />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Card />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Card />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Card />
+							<Card
+								isAdmin={isAdmin}
+								img="./src/assets/images/salada.png"
+								name="Salada Ravanello"
+								description="Massa fresca com camarões e pesto."
+								price="49,90"
+								buttonTitle="incluir"
+							/>
 						</SwiperSlide>
 					</Swiper>
 				</Section>

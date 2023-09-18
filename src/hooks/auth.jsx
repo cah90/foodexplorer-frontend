@@ -17,7 +17,7 @@ function AuthProvider({ children }) {
 
 			const { user } = response.data
 
-			localStorage.setItem("@stock:user", JSON.stringify(user))
+			localStorage.setItem("@explorer:user", JSON.stringify(user))
 
 			setData({ user })
 		} catch (error) {
@@ -30,13 +30,13 @@ function AuthProvider({ children }) {
 	}
 
 	function signOut() {
-		localStorage.removeItem("@estock:user")
+		localStorage.removeItem("@explorer:user")
 
 		setData({})
 	}
 
 	useEffect(() => {
-		const user = localStorage.getItem("@estock:user")
+		const user = localStorage.getItem("@explorer:user")
 
 		if (user) {
 			setData({
