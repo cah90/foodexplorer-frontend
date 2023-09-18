@@ -13,7 +13,7 @@ export function AdminRoutes() {
 			<Route path="/new" element={<NewDish />} />
 			<Route path="/edit" element={<EditDish />} />
 
-			<Route path="*" exact={true} element={<NotFound />} />
+			{/* <Route path="*" exact={true} element={<NotFound />} /> */}
 		</Routes>
 	)
 }
