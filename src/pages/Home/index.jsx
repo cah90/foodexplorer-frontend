@@ -1,10 +1,14 @@
 import { Wrapper, Hero, Section } from "./styles"
 
+import { useState, useEffect } from "react"
+
 import { useAuth } from "../../hooks/auth"
 
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
 import { Card } from "../../components/Card"
+
+import { api } from "../../services/api"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
@@ -15,6 +19,37 @@ export function Home() {
 	const { user } = useAuth()
 
 	const isAdmin = user.role == "admin"
+
+	const [categories, setCategories] = useState([])
+	const [dishes, setDishes] = useState([])
+
+	useEffect(() => {
+		api
+			.get("/categories", { withCredentials: true })
+			.then((response) => {
+				setCategories(response.data)
+			})
+			.catch((error) => {
+				if (error.response) {
+					alert(error.response.data.message)
+				} else {
+					alert("Não há categorias para serem exibidos.")
+				}
+			})
+
+		api
+			.get("/dishes", { withCredentials: true })
+			.then((response) => {
+				setDishes(response.data)
+			})
+			.catch((error) => {
+				if (error.response) {
+					alert(error.response.data.message)
+				} else {
+					alert("Não há pratos para serem exibidos.")
+				}
+			})
+	}, [])
 
 	return (
 		<>
@@ -32,35 +67,42 @@ export function Home() {
 					</div>
 				</Hero>
 
-				<Section>
-					<h2>Refeições</h2>
+				{categories?.map((category) => (
+					<Section key={category.id}>
+						<h2>{category.name}</h2>
 
-					<Swiper
-						navigation={true}
-						modules={[Navigation]}
-						slidesPerView={2}
-						breakpoints={{
-							768: {
-								slidesPerView: 3,
-							},
-							1024: {
-								slidesPerView: 3,
-							},
-						}}
-						className="cards"
-					>
-						<SwiperSlide>
-							<Card
-								isAdmin={isAdmin}
-								img="./src/assets/images/salada.png"
-								name="Salada Ravanello"
-								description="Massa fresca com camarões e pesto."
-								price="49,90"
-								buttonTitle="incluir"
-							/>
-						</SwiperSlide>
-					</Swiper>
-				</Section>
+						<Swiper
+							navigation={true}
+							modules={[Navigation]}
+							slidesPerView={2}
+							breakpoints={{
+								768: {
+									slidesPerView: 3,
+								},
+								1024: {
+									slidesPerView: 3,
+								},
+							}}
+							className="cards"
+						>
+							{dishes
+								?.filter((dish) => category.id === dish.category_id)
+								.map((filteredDish) => (
+									<SwiperSlide key={filteredDish.id}>
+										<Card
+											isAdmin={isAdmin}
+											img={`${api.defaults.baseURL}/files/${filteredDish.image}`}
+											name={filteredDish.dishes_name}
+											description={filteredDish.description}
+											price={filteredDish.price}
+											buttonTitle="incluir"
+										/>
+									</SwiperSlide>
+								))}
+						</Swiper>
+					</Section>
+					// End of categories loops
+				))}
 			</Wrapper>
 
 			<Footer />

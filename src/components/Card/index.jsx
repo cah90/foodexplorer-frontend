@@ -36,7 +36,7 @@ export function Card({
 			) : (
 				<AiOutlineHeart onClick={toggleFavorite} />
 			)}
-			<img src={img} alt="Foto de um prato" />
+			<img src={img} alt="Imagem do prato" />
 			<h3>
 				<a href={`dishes/details/${id}`}>{name} &gt;</a>
 			</h3>
