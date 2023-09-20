@@ -53,6 +53,10 @@ export const Container = styled.header`
 		height: 2.5rem;
 	}
 
+	.adminLogo {
+		height: 3.9rem;
+	}
+
 	.exit {
 		display: none;
 	}

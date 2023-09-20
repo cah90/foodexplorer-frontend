@@ -7,6 +7,7 @@ import { Button } from "../Button"
 import { Counter } from "../Counter"
 
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export function Card({
 	img,
@@ -38,7 +39,8 @@ export function Card({
 			)}
 			<img src={img} alt="Imagem do prato" />
 			<h3>
-				<a href={`dishes/details/${id}`}>{name} &gt;</a>
+				<Link to={`details/${id}`}>{name} &gt;</Link>
+				{/* <a href={`details/${id}`}>{name} &gt;</a> */}
 			</h3>
 			<p>{description}</p>
 			<span>R$ {price}</span>

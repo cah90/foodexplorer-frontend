@@ -72,6 +72,7 @@ export function Home() {
 						<h2>{category.name}</h2>
 
 						<Swiper
+							key={category.id}
 							navigation={true}
 							modules={[Navigation]}
 							slidesPerView={2}
@@ -91,6 +92,7 @@ export function Home() {
 									<SwiperSlide key={filteredDish.id}>
 										<Card
 											isAdmin={isAdmin}
+											id={filteredDish.dishes_id}
 											img={`${api.defaults.baseURL}/files/${filteredDish.image}`}
 											name={filteredDish.dishes_name}
 											description={filteredDish.description}
