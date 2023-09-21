@@ -2,12 +2,13 @@ import { Container } from "./styles"
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { BsPencil, BsPencilFill } from "react-icons/bs"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 import { Button } from "../Button"
 import { Counter } from "../Counter"
 
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useCounter } from "../../hooks/useCounter"
 
 export function Card({
 	img,
@@ -19,6 +20,7 @@ export function Card({
 	buttonTitle,
 }) {
 	const [favorite, setFavorite] = useState(false)
+	const { count, increase, decrease } = useCounter(1)
 
 	const toggleFavorite = () => {
 		setFavorite(!favorite)
@@ -47,8 +49,7 @@ export function Card({
 
 			{!isAdmin && (
 				<div className="add-items">
-					<Counter />
-
+					<Counter count={count} increase={increase} decrease={decrease} />
 					<Button title={buttonTitle} />
 				</div>
 			)}

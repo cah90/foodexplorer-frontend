@@ -16,10 +16,13 @@ import { useAuth } from "../../hooks/auth"
 import { USER_ROLE } from "../../utils/roles"
 import { api } from "../../services/api"
 
+import { useCounter } from "../../hooks/useCounter"
+
 export function Details() {
 	const { user } = useAuth()
 
 	let { id } = useParams()
+	const { count, increase, decrease } = useCounter(1)
 
 	const [dish, setDish] = useState([])
 
@@ -71,10 +74,14 @@ export function Details() {
 								</Link>
 							) : (
 								<div className="add-item">
-									<Counter />
+									<Counter
+										count={count}
+										increase={increase}
+										decrease={decrease}
+									/>
 									<Button
 										icon={PiReceiptLight}
-										title={`pedir - R$ ${dish.price}`}
+										title={`pedir - R$ ${count * dish.price}`}
 									/>
 								</div>
 							)}
