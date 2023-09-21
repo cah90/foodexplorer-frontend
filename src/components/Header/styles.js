@@ -49,7 +49,7 @@ export const Container = styled.header`
 		font-size: 2.4rem;
 	}
 
-	> img {
+	.userLogo {
 		height: 2.5rem;
 	}
 

@@ -55,7 +55,11 @@ export function Header() {
 									alt="Logo do Admin Food Explorer"
 								/>
 							) : (
-								<img src="/logo.png" alt="Logo do Food Explorer" />
+								<img
+									className="userLogo"
+									src="/logo.png"
+									alt="Logo do Food Explorer"
+								/>
 							)}
 						</Link>
 

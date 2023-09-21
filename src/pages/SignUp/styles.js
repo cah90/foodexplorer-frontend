@@ -51,6 +51,10 @@ export const Form = styled.form`
 		display: none;
 	}
 
+	button {
+		width: 100%;
+	}
+
 	@media (min-width: 1000px) {
 		> h2 {
 			display: inline-block;

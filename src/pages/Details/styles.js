@@ -56,10 +56,6 @@ export const Wrapper = styled.div`
 		display: flex;
 		gap: 1.6rem;
 		justify-content: space-around;
-
-		div[type="button"] {
-			max-width: 18rem;
-		}
 	}
 
 	@media (min-width: 1024px) {
