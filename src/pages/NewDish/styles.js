@@ -42,6 +42,7 @@ export const Wrapper = styled.div`
 
 		.ingredients-items {
 			display: flex;
+			flex-wrap: wrap;
 			padding: 0.8rem;
 			gap: 1.6rem;
 

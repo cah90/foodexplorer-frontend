@@ -103,7 +103,6 @@ export function Home() {
 								))}
 						</Swiper>
 					</Section>
-					// End of categories loops
 				))}
 			</Wrapper>
 

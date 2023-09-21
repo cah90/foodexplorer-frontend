@@ -8,13 +8,77 @@ import { Textarea } from "../../components/Textarea"
 import { IngredientItem } from "../../components/IngredientItem"
 import { Footer } from "../../components/Footer"
 
+import { Link, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+
+import { api } from "../../services/api"
+
 export function NewDish() {
+	const navigate = useNavigate()
+
+	const [image, setImage] = useState("")
+	const [name, setName] = useState("")
+	const [categories, setCategories] = useState([])
+	const [category, setCategory] = useState(0)
+
+	const [ingredients, setIngredients] = useState([])
+	const [newIngredient, setNewIngredient] = useState("")
+
+	const [price, setPrice] = useState("")
+	const [description, setDescription] = useState("")
+
+	function handleAddIngredient() {
+		setIngredients((prevState) => [...prevState, newIngredient])
+
+		setNewIngredient("")
+	}
+
+	function handleRemoveIngredient(deleted) {
+		setIngredients((prevState) =>
+			prevState.filter((ingredient) => ingredient !== deleted)
+		)
+	}
+
+	async function handleNewDish() {
+		// await api.post("/", {
+		// 	image,
+		// 	name,
+		// 	category,
+		// 	ingredients,
+		// 	price,
+		// 	description
+		// })
+
+		// alert("Nota criada com sucesso!")
+		// navigate("/")
+
+		console.log("Sou o handleNewDish e fui chamado")
+		console.log(name, category, price, description, ingredients)
+	}
+
+	useEffect(() => {
+		api
+			.get("/categories", { withCredentials: true })
+			.then((response) => {
+				setCategories(response.data)
+			})
+			.catch((error) => {
+				if (error.response) {
+					alert(error.response.data.message)
+				} else {
+					alert("Não há pratos para serem exibidos.")
+				}
+			})
+	}, [])
+
 	return (
 		<Container>
 			<Header />
 
 			<Wrapper>
-				<ButtonText title="voltar" />
+				<Link to={"/"}>
+					<ButtonText title="voltar" />
+				</Link>
 
 				<h1>Novo prato</h1>
 				<div className="main">
@@ -60,23 +124,42 @@ export function NewDish() {
 						placeholder="Ex.: Salada Ceasar"
 						type="text"
 						className="name"
+						onChange={(e) => setName(e.target.value)}
 					/>
 
 					<div className="categories">
 						<label>Categoria</label>
-						<Select name="categorias" id="categorias>">
-							<option value="refeicoes">Refeições</option>
-							<option value="pratos_principais">Pratos Principais</option>
-							<option value="sobremesas">Sobremesas</option>
-							<option value="bebidas">Bebidas</option>
+						<Select
+							name="category"
+							id="category"
+							onChange={(e) => setCategory(e.target.value)}
+						>
+							{categories.map((category) => (
+								<option key={category.id} value={category.id}>
+									{category.name}
+								</option>
+							))}
 						</Select>
 					</div>
 
 					<div className="ingredients">
 						<label>Ingredientes</label>
 						<div className="ingredients-items">
-							<IngredientItem value="Pão Naan" />
-							<IngredientItem $isNew placeholder="Adicionar" />
+							<IngredientItem
+								$isNew
+								placeholder="Adicionar"
+								value={newIngredient}
+								onChange={(e) => setNewIngredient(e.target.value)}
+								onClick={handleAddIngredient}
+							/>
+							{ingredients.map((ingredient, index) => (
+								<IngredientItem
+									key={String(index)}
+									value={ingredient}
+									on
+									onClick={() => handleRemoveIngredient(ingredient)}
+								/>
+							))}
 						</div>
 					</div>
 
@@ -85,14 +168,18 @@ export function NewDish() {
 						placeholder="R$ 00,00"
 						type="number"
 						className="price"
+						onChange={(e) => setPrice(e.target.value)}
 					/>
 
 					<div className="description">
 						<label>Descrição</label>
-						<Textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição."></Textarea>
+						<Textarea
+							onChange={(e) => setDescription(e.target.value)}
+							placeholder="Fale brevemente sobre o prato, seus ingredientes e composição."
+						></Textarea>
 					</div>
 
-					<Button title="Salvar" className="button" />
+					<Button title="Salvar" className="button" onClick={handleNewDish} />
 				</div>
 			</Wrapper>
 
