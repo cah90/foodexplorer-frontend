@@ -124,6 +124,11 @@ export const InputFile = styled.div`
 			height: 2rem;
 		}
 
+		span,
+		svg {
+			color: ${(props) => (props.isImageLoaded ? "#008000" : "#fff")};
+		}
+
 		input {
 			display: none;
 		}
