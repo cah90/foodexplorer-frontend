@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 		margin: 0;
 	}
 
-	.main {
+	form {
 		label {
 			font-family: var(--ff-roboto);
 			font-size: 1.6rem;
@@ -54,7 +54,7 @@ export const Wrapper = styled.div`
 	@media (min-width: 1024px) {
 		min-width: 112rem;
 
-		.main {
+		form {
 			display: grid;
 			gap: 3.2rem;
 			grid-template-columns: repeat(3, 1fr);
@@ -119,6 +119,10 @@ export const InputFile = styled.div`
 		gap: 1rem;
 
 		cursor: pointer;
+
+		svg {
+			height: 2rem;
+		}
 
 		input {
 			display: none;
