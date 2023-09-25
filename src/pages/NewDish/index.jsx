@@ -108,7 +108,7 @@ export function NewDish() {
 				</Link>
 
 				<h1>Novo prato</h1>
-				<form>
+				<div className="main">
 					<InputFile isImageLoaded={isImageLoaded}>
 						<label>
 							Imagem do prato
@@ -188,9 +188,8 @@ export function NewDish() {
 							placeholder="Fale brevemente sobre o prato, seus ingredientes e composição."
 						></Textarea>
 					</div>
-
 					<Button title="Salvar" className="button" onClick={handleNewDish} />
-				</form>
+				</div>
 			</Wrapper>
 
 			<Footer />

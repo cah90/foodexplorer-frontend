@@ -42,7 +42,8 @@ export const Wrapper = styled.div`
 
 		.ingredients-items {
 			display: flex;
-			padding: 0.8rem;
+			flex-wrap: wrap;
+			padding: 1rem;
 			gap: 1.6rem;
 
 			background-color: ${({ theme }) => theme.COLORS.DARK_800};
@@ -57,11 +58,15 @@ export const Wrapper = styled.div`
 		.btn-delete {
 			background-color: ${({ theme }) => theme.COLORS.DARK_800};
 		}
+
+		.btn-delete,
+		.btn-save {
+			width: 100%;
+		}
 	}
 
 	@media (min-width: 1024px) {
-		min-width: 112rem;
-
+		max-width: 112rem;
 		.main {
 			display: grid;
 			gap: 3.2rem;
@@ -127,6 +132,15 @@ export const InputFile = styled.div`
 		gap: 1rem;
 
 		cursor: pointer;
+
+		svg {
+			font-size: 2rem;
+		}
+
+		span,
+		svg {
+			color: ${(props) => (props.isImageLoaded ? "#008000" : "#fff")};
+		}
 
 		input {
 			display: none;

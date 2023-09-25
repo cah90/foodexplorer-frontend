@@ -71,7 +71,7 @@ export const Container = styled.header`
 
 	@media (min-width: 1024px) {
 		gap: 3.2rem;
-		padding: 2.4rem 12.3rem;
+		padding: 2.4rem 10.3rem;
 
 		.menu {
 			display: none;

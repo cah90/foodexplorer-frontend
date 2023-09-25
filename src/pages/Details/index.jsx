@@ -24,7 +24,7 @@ export function Details() {
 	let { id } = useParams()
 	const { count, increase, decrease } = useCounter(1)
 
-	const [dish, setDish] = useState([])
+	const [dish, setDish] = useState({})
 
 	useEffect(() => {
 		api
@@ -36,7 +36,7 @@ export function Details() {
 				if (error.response) {
 					alert(error.response.data.message)
 				} else {
-					alert("Não há categorias para serem exibidos.")
+					alert("Não há prato para ser exibido.")
 				}
 			})
 	}, [])
@@ -49,27 +49,26 @@ export function Details() {
 				<Link to={"/"}>
 					<ButtonText title="voltar" />
 				</Link>
-
-				{dish.map((dish) => (
-					<div className="main" key={id}>
+				{dish.name && (
+					<div className="main">
 						<img
 							src={`${api.defaults.baseURL}/files/${dish.image}`}
 							alt="Imagem de um prato"
 						/>
 
 						<div className="main-info">
-							<h1>{dish.dishes_name}</h1>
+							<h1>{dish.name}</h1>
 
 							<p>{dish.description}</p>
 
 							<div className="tags">
-								{dish.ingredients_name.map((ingredient) => (
-									<Tag title={ingredient} />
+								{dish.ingredients.map((ingredient, index) => (
+									<Tag key={String(index)} title={ingredient} />
 								))}
 							</div>
 
 							{user.role === USER_ROLE.ADMIN ? (
-								<Link to={"/edit"}>
+								<Link to={`/edit/${id}`}>
 									<Button title="Editar prato" />
 								</Link>
 							) : (
@@ -87,7 +86,7 @@ export function Details() {
 							)}
 						</div>
 					</div>
-				))}
+				)}
 			</Wrapper>
 
 			<Footer />

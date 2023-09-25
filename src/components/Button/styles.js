@@ -18,5 +18,7 @@ export const Container = styled.button`
 	line-height: 2.4rem;
 	color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
+	outline: none;
+
 	cursor: pointer;
 `

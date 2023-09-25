@@ -11,7 +11,7 @@ export function AdminRoutes() {
 			<Route path="/" element={<Home />} />
 			<Route path="/details/:id" element={<Details />} />
 			<Route path="/new" element={<NewDish />} />
-			<Route path="/edit" element={<EditDish />} />
+			<Route path="/edit/:id" element={<EditDish />} />
 
 			{/* <Route path="*" exact={true} element={<NotFound />} /> */}
 		</Routes>
