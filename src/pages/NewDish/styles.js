@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
 	max-width: 159rem;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 
 	padding: 1.2rem 2.8rem;
 
@@ -49,10 +49,15 @@ export const Wrapper = styled.div`
 			background-color: ${({ theme }) => theme.COLORS.DARK_800};
 			border-radius: 0.8rem;
 		}
+
+		.button {
+			width: 100%;
+		}
 	}
 
 	@media (min-width: 1024px) {
-		min-width: 112rem;
+		max-width: 112rem;
+		margin: 0 auto;
 
 		.main {
 			display: grid;

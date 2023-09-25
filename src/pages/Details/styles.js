@@ -52,6 +52,10 @@ export const Wrapper = styled.div`
 		flex-wrap: wrap;
 	}
 
+	.edit-btn {
+		width: 100%;
+	}
+
 	.add-item {
 		display: flex;
 		gap: 1.6rem;
@@ -97,6 +101,10 @@ export const Wrapper = styled.div`
 
 				.tags {
 					justify-content: flex-start;
+				}
+
+				.edit-btn {
+					width: initial;
 				}
 			}
 		}

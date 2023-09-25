@@ -69,7 +69,7 @@ export function Details() {
 
 							{user.role === USER_ROLE.ADMIN ? (
 								<Link to={`/edit/${id}`}>
-									<Button title="Editar prato" />
+									<Button title="Editar prato" className="edit-btn" />
 								</Link>
 							) : (
 								<div className="add-item">
