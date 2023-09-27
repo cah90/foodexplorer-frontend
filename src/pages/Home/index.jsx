@@ -1,5 +1,5 @@
 import { Wrapper, Hero, Section } from "./styles"
-import HomeImg from "../../assets/image-home.png"
+import HomeImg from "../../assets/images/image-home.png"
 
 import { useState, useEffect } from "react"
 
