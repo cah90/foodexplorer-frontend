@@ -20,7 +20,7 @@ export function Card({
 	buttonTitle,
 }) {
 	const [favorite, setFavorite] = useState(false)
-	const { count, increase, decrease } = useCounter(1)
+	const { count, increase, decrease } = useCounter(0)
 
 	const toggleFavorite = () => {
 		setFavorite(!favorite)
