@@ -1,4 +1,5 @@
 import { Wrapper, Hero, Section } from "./styles"
+import HomeImg from "../../assets/image-home.png"
 
 import { useState, useEffect } from "react"
 
@@ -56,10 +57,7 @@ export function Home() {
 			<Header />
 			<Wrapper>
 				<Hero>
-					<img
-						src="/src/assets/images/image-home.png"
-						alt="Imagem de alguns biscoitos coloridos"
-					/>
+					<img src={HomeImg} alt="Imagem de alguns biscoitos coloridos" />
 
 					<div className="hero-info">
 						<h2>Sabores inigualáveis</h2>
