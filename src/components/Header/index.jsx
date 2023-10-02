@@ -12,11 +12,13 @@ import { USER_ROLE } from "../../utils/roles"
 
 import { Link, useNavigate } from "react-router-dom"
 import { AnimatePresence, useCycle } from "framer-motion"
+import { useState } from "react"
 
 export function Header() {
 	const { user, signOut } = useAuth()
 
 	const [showNav, toggleNav] = useCycle(false, true)
+	const [query, setQuery] = useState("")
 
 	const navigate = useNavigate()
 
@@ -40,6 +42,17 @@ export function Header() {
 			transition: spring,
 		},
 	}
+
+	function handleQuery(e) {
+		setQuery(e.target.value)
+	}
+
+	function handleKeyDown(e) {
+		if (e.keyCode === 13) {
+			navigate(`/?query=${query}`)
+		}
+	}
+
 	return (
 		<>
 			<Container>
@@ -67,6 +80,8 @@ export function Header() {
 							<Input
 								placeholder="Busque por pratos ou ingredientes"
 								icon={FiSearch}
+								onChange={handleQuery}
+								onKeyDown={handleKeyDown}
 							/>
 						</div>
 
@@ -109,6 +124,8 @@ export function Header() {
 						<Input
 							icon={FiSearch}
 							placeholder="Busque por pratos ou ingredientes"
+							onChange={handleQuery}
+							onKeyDown={handleKeyDown}
 						/>
 
 						{user.role === USER_ROLE.ADMIN && <Link to="/new">Novo Prato</Link>}

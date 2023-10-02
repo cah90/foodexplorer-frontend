@@ -2,6 +2,7 @@ import { Wrapper, Hero, Section } from "./styles"
 import HomeImg from "../../assets/images/image-home.png"
 
 import { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 import { useAuth } from "../../hooks/auth"
 
@@ -18,39 +19,67 @@ import "swiper/css/navigation"
 
 export function Home() {
 	const { user } = useAuth()
-
 	const isAdmin = user.role == "admin"
+
+	const { search } = useLocation()
+	const searchParams = new URLSearchParams(search)
+	const queryValue = searchParams.get("query")
 
 	const [categories, setCategories] = useState([])
 	const [dishes, setDishes] = useState([])
 
 	useEffect(() => {
-		api
-			.get("/categories", { withCredentials: true })
-			.then((response) => {
-				setCategories(response.data)
-			})
-			.catch((error) => {
-				if (error.response) {
-					alert(error.response.data.message)
-				} else {
-					alert("Não há categorias para serem exibidos.")
-				}
-			})
+		if (!queryValue) {
+			api
+				.get("/categories", { withCredentials: true })
+				.then((response) => {
+					setCategories(response.data)
+				})
+				.catch((error) => {
+					if (error.response) {
+						alert(error.response.data.message)
+					} else {
+						alert("Não há categorias para serem exibidos.")
+					}
+				})
 
-		api
-			.get("/dishes", { withCredentials: true })
-			.then((response) => {
+			api
+				.get("/dishes", { withCredentials: true })
+				.then((response) => {
+					setDishes(response.data)
+				})
+				.catch((error) => {
+					if (error.response) {
+						alert(error.response.data.message)
+					} else {
+						alert("Não há pratos para serem exibidos.")
+					}
+				})
+		} else {
+			api.get(`/search?query=${queryValue}`).then((response) => {
 				setDishes(response.data)
 			})
-			.catch((error) => {
-				if (error.response) {
-					alert(error.response.data.message)
-				} else {
-					alert("Não há pratos para serem exibidos.")
-				}
+		}
+	}, [queryValue])
+
+	useEffect(() => {
+		let tempCategories = []
+
+		dishes.forEach((dish) => {
+			const checkIfCategoryExist = tempCategories.some((category) => {
+				return category.id === dish.category_id
 			})
-	}, [])
+
+			if (!checkIfCategoryExist || !tempCategories.length) {
+				tempCategories.push({
+					id: dish.category_id,
+					name: dish.category_name,
+				})
+			}
+		})
+
+		setCategories(tempCategories)
+	}, [dishes])
 
 	return (
 		<>
@@ -73,7 +102,7 @@ export function Home() {
 							key={category.id}
 							navigation={true}
 							modules={[Navigation]}
-							slidesPerView={2}
+							slidesPerView={3}
 							breakpoints={{
 								768: {
 									slidesPerView: 3,
@@ -86,8 +115,8 @@ export function Home() {
 						>
 							{dishes
 								?.filter((dish) => category.id === dish.category_id)
-								.map((filteredDish) => (
-									<SwiperSlide key={filteredDish.id}>
+								.map((filteredDish, index) => (
+									<SwiperSlide key={String(index)}>
 										<Card
 											isAdmin={isAdmin}
 											id={filteredDish.dishes_id}

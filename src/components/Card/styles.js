@@ -66,6 +66,7 @@ export const Container = styled.div`
 
 	@media (min-width: 1024px) {
 		max-width: 30.4rem;
+		height: 31.8rem;
 		padding: 2.4rem;
 
 		.add-items {
@@ -90,6 +91,7 @@ export const Container = styled.div`
 			font-family: "Roboto", sans-serif;
 			font-size: 1.4rem;
 			font-weight: 400;
+			text-align: center;
 			color: ${({ theme }) => theme.COLORS.LIGHT_400};
 		}
 
