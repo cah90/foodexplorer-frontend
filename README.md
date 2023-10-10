@@ -1,10 +1,10 @@
-# Food Explorer
+# Explorer Course by Rocketseat
+
+## Food Explorer Frontend - 🍔
 
 Food Explorer is the final challenge application of the Explorer course from [Rocketseat School](https://www.rocketseat.com.br/).
 
-The aim of this part of the project was to create an interface using the ReactJS library that will use our API for consuming the resources.
-
-You can go to the API here - [Food Explorer API](https://github.com/cah90/foodexplorer-backend).
+This project was divided into a frontend using ReactJS library to create the interface and a backend API for consuming the resources that you can check it here - [Food Explorer API](https://github.com/cah90/foodexplorer-backend).
 
 ## Access
 
@@ -13,15 +13,17 @@ You can check the final result of the app by clicking here - [Food Explorer APP]
 - Login as admin user: admin@gmail.com
 - Password as admin user: 123456
 
-Because this app uses a free hosting provider, it will stop automatically when not used.
-For accessing the app, you will need to wait a few seconds after placing login and password to access the site.
+> 🔥 **Attention** </br>
+> Because this app uses a free hosting provider, it will stop automatically when not user.
+> For accessing the app, you will need to wait a few seconds after making the login to have access to the site.
 
 ## Features
 
 - Clients are able to:
+  - Login
   - Create an account
-  - Place orders
-  - Add orders to favorites
+  - See all dishes
+  - See a dish in detail
   - Search dishes by name or ingredients
 - Admin is able to:
   - Add new dishes
@@ -38,16 +40,22 @@ The main technologies used:
 - Styled-Components
 - Axios
 - Framer (for animation)
-- Swiper
+- Swiper (for animation)
 
 ## Installation
 
 To have the Food Explorer Frontend running in your local, it is important to have the [Food Explorer API](https://github.com/cah90/foodexplorer-backend)
 already installed and running.
 
-For this follow the instructions on [Food Explorer API](https://github.com/cah90/foodexplorer-backend).
+Follow the instructions on [Food Explorer API](https://github.com/cah90/foodexplorer-backend).
 
-You can either download this project through GitHub or you can clone it using your terminal.
+There are two ways of installing this project in your computer.
+
+1. You can download the project through GitHub by clicking in the button "Code" then "Download ZIP".
+
+2. Or you can clone it using your terminal.
+
+### Steps when using the terminal
 
 ```
 git clone https://github.com/cah90/foodexplorer-frontend.git
@@ -71,10 +79,12 @@ Run the app by running
 npm run dev
 ```
 
+💡 If everything worked, you will be able to access the project on http://localhost:5173/ in your browser.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ## Author
 
-Made by Cássia Bernardo.
+Made by Cássia Bernardo ❤️
