@@ -5,15 +5,21 @@ export const Container = styled.div`
 
 	display: flex;
 	align-items: center;
-	gap: 1.4rem;
+	gap: 2rem;
 
 	font-size: 1.6rem;
+
+	> span {
+		font-size: 2.4rem;
+		font-weight: 700;
+	}
 
 	button {
 		background: none;
 		border: none;
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 		font-size: 2.4rem;
+		font-weight: 700;
 	}
 
 	@media (min-width: 1024px) {

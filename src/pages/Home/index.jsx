@@ -8,18 +8,12 @@ import { useAuth } from "../../hooks/auth"
 
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
-import { Card } from "../../components/Card"
+import { Slider } from "../../components/Slider"
 
 import { api } from "../../services/api"
 
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation } from "swiper/modules"
-import "swiper/css"
-import "swiper/css/navigation"
-
 export function Home() {
 	const { user } = useAuth()
-	const isAdmin = user.role == "admin"
 
 	const { search } = useLocation()
 	const searchParams = new URLSearchParams(search)
@@ -98,37 +92,7 @@ export function Home() {
 					<Section key={category.id}>
 						<h2>{category.name}</h2>
 
-						<Swiper
-							key={category.id}
-							navigation={true}
-							modules={[Navigation]}
-							slidesPerView={3}
-							breakpoints={{
-								768: {
-									slidesPerView: 3,
-								},
-								1024: {
-									slidesPerView: 3,
-								},
-							}}
-							className="cards"
-						>
-							{dishes
-								?.filter((dish) => category.id === dish.category_id)
-								.map((filteredDish, index) => (
-									<SwiperSlide key={String(index)}>
-										<Card
-											isAdmin={isAdmin}
-											id={filteredDish.dishes_id}
-											img={`${api.defaults.baseURL}/files/${filteredDish.image}`}
-											name={filteredDish.dishes_name}
-											description={filteredDish.description}
-											price={filteredDish.price}
-											buttonTitle="incluir"
-										/>
-									</SwiperSlide>
-								))}
-						</Swiper>
+						<Slider categoryId={category.id} dishes={dishes} />
 					</Section>
 				))}
 			</Wrapper>

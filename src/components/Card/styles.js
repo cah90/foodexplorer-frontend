@@ -1,15 +1,16 @@
 import { styled } from "styled-components"
 
 export const Container = styled.div`
-	max-width: 21rem;
+	width: 210px;
+	min-height: 292px;
 	padding: 2.4rem;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1.5rem;
+	gap: 1.2rem;
 
-	background-color: ${({ theme }) => theme.COLORS.DARK_200};
+	background-color: ${({ theme }) => theme.COLORS.DARK_600};
 	border: 0.1rem solid ${({ theme }) => theme.COLORS.DARK_300};
 	border-radius: 0.8rem;
 
@@ -26,6 +27,10 @@ export const Container = styled.div`
 		gap: 1.6rem;
 
 		width: 100%;
+
+		button[type="button"] {
+			width: 100%;
+		}
 	}
 
 	> svg {
@@ -52,6 +57,7 @@ export const Container = styled.div`
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 		font-size: 1.4rem;
 		font-weight: 500;
+		line-height: 2.4rem;
 
 		text-align: center;
 	}
@@ -65,14 +71,18 @@ export const Container = styled.div`
 	}
 
 	@media (min-width: 1024px) {
-		max-width: 30.4rem;
-		height: 31.8rem;
+		width: 304px;
+		height: 467px;
 		padding: 2.4rem;
 
 		.add-items {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: space-evenly;
+		}
+
+		> img {
+			width: 17.6rem;
 		}
 
 		> h3,
@@ -101,8 +111,8 @@ export const Container = styled.div`
 			margin: 1.5rem 0;
 		}
 
-		div[type="button"] {
+		/* div[type="button"] {
 			max-width: 9rem;
-		}
+		} */
 	}
 `

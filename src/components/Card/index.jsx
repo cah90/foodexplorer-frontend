@@ -20,9 +20,9 @@ export function Card({
 	buttonTitle,
 }) {
 	const [favorite, setFavorite] = useState(false)
-	const { count, increase, decrease } = useCounter(0)
+	const { count, increase, decrease } = useCounter(1)
 
-	const toggleFavorite = () => {
+	const handleFavorite = () => {
 		setFavorite(!favorite)
 	}
 
@@ -30,19 +30,18 @@ export function Card({
 		<Container>
 			{isAdmin ? (
 				favorite ? (
-					<BsPencilFill onClick={toggleFavorite} />
+					<BsPencilFill onClick={handleFavorite} />
 				) : (
-					<BsPencil onClick={toggleFavorite} />
+					<BsPencil onClick={handleFavorite} />
 				)
 			) : favorite ? (
-				<AiFillHeart className="favorite-filled" onClick={toggleFavorite} />
+				<AiFillHeart className="favorite-filled" onClick={handleFavorite} />
 			) : (
-				<AiOutlineHeart onClick={toggleFavorite} />
+				<AiOutlineHeart onClick={handleFavorite} />
 			)}
 			<img src={img} alt="Imagem do prato" />
 			<h3>
 				<Link to={`details/${id}`}>{name} &gt;</Link>
-				{/* <a href={`details/${id}`}>{name} &gt;</a> */}
 			</h3>
 			<p>{description}</p>
 			<span>R$ {price}</span>
