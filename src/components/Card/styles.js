@@ -16,6 +16,10 @@ export const Container = styled.div`
 
 	position: relative;
 
+	&:hover {
+		border: 1px solid ${({ theme }) => theme.COLORS.CAKE_100};
+	}
+
 	.favorite-filled {
 		color: ${({ theme }) => theme.COLORS.TOMATO_100};
 	}

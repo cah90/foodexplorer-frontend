@@ -1,10 +1,16 @@
 import { Container } from "./styles"
 
-export function Button({ title, icon: Icon, ...rest }) {
+import { BeatLoader } from "react-spinners"
+
+export function Button({ title, loading = false, icon: Icon, ...rest }) {
 	return (
-		<Container type="button" {...rest}>
+		<Container type="button" disabled={loading} {...rest}>
 			{Icon && <Icon />}
-			{title}
+			{loading ? (
+				<BeatLoader loading={loading} color="#fff" size={10} />
+			) : (
+				title
+			)}
 		</Container>
 	)
 }

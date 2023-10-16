@@ -1,5 +1,6 @@
 import { Container, Form } from "./styles"
 import { useState } from "react"
+
 import { useAuth } from "../../hooks/auth"
 
 import { Link } from "react-router-dom"
@@ -10,10 +11,15 @@ import { Button } from "../../components/Button"
 export function SignIn() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+
+	let [loading, setLoading] = useState(false)
+
 	const { signIn } = useAuth()
 
-	function handleSignIn(e) {
-		signIn({ email, password })
+	async function handleSignIn(e) {
+		setLoading(true)
+		await signIn({ email, password })
+		setLoading(false)
 	}
 
 	return (
@@ -39,7 +45,7 @@ export function SignIn() {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						<Button title="Entrar" onClick={handleSignIn} />
+						<Button title="Entrar" loading={loading} onClick={handleSignIn} />
 					</Form>
 
 					<Link to="/register">Criar uma conta</Link>

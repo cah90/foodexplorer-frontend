@@ -19,7 +19,6 @@ export const Container = styled.div`
 	> input {
 		border: none;
 		background-color: transparent;
-		outline: none;
 		width: 100%;
 
 		font-family: var(--ff-roboto);

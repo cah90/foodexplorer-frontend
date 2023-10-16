@@ -111,7 +111,6 @@ export const InputFile = styled.div`
 		border-radius: 0.8rem;
 		border: none;
 		background-color: ${({ theme }) => theme.COLORS.DARK_800};
-		outline: none;
 
 		font-family: var(--ff-roboto);
 		font-size: 1.6rem;
@@ -147,8 +146,6 @@ export const Select = styled.select`
 	font-family: var(--ff-roboto);
 	font-size: 1.6rem;
 	font-weight: 400;
-
-	outline: none;
 
 	padding: 1.4rem;
 	border-radius: 0.8rem;

@@ -13,12 +13,16 @@ export function SignUp() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 
+	let [loading, setLoading] = useState(false)
+
 	const navigate = useNavigate()
 
 	function handleSignUp() {
 		if (!name || !email || !password) {
 			return alert("Preencha todos os campos!")
 		}
+
+		setLoading(true)
 
 		api
 			.post("/users", { name, email, password })
@@ -65,7 +69,11 @@ export function SignUp() {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						<Button title="Criar conta" onClick={handleSignUp} />
+						<Button
+							title="Criar conta"
+							loading={loading}
+							onClick={handleSignUp}
+						/>
 					</Form>
 
 					<Link to="/">Já tenho uma conta</Link>

@@ -104,6 +104,7 @@ export function Slider({ categoryId, dishes }) {
 					<swiper-slide key={filteredDish.dishes_id}>
 						<Card
 							isAdmin={isAdmin}
+							key={filteredDish.dishes_id}
 							id={filteredDish.dishes_id}
 							img={`${api.defaults.baseURL}/files/${filteredDish.image}`}
 							name={filteredDish.dishes_name}

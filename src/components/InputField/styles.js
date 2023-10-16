@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 	margin-bottom: 3.2rem;
 
-	> label {
+	label {
 		text-align: left;
 		margin-bottom: 0.8rem;
 

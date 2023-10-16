@@ -156,8 +156,6 @@ export const Select = styled.select`
 	font-size: 1.6rem;
 	font-weight: 400;
 
-	outline: none;
-
 	padding: 1.4rem;
 	border-radius: 0.8rem;
 	border: none;
