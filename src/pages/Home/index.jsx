@@ -25,19 +25,6 @@ export function Home() {
 	useEffect(() => {
 		if (!queryValue) {
 			api
-				.get("/categories", { withCredentials: true })
-				.then((response) => {
-					setCategories(response.data)
-				})
-				.catch((error) => {
-					if (error.response) {
-						alert(error.response.data.message)
-					} else {
-						alert("Não há categorias para serem exibidos.")
-					}
-				})
-
-			api
 				.get("/dishes", { withCredentials: true })
 				.then((response) => {
 					setDishes(response.data)

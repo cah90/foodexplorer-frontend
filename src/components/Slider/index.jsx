@@ -92,7 +92,6 @@ export function Slider({ categoryId, dishes }) {
 			],
 		}
 
-		console.log(dishes)
 		Object.assign(swiperContainer, params)
 		swiperContainer.initialize()
 	}, [])
@@ -102,7 +101,7 @@ export function Slider({ categoryId, dishes }) {
 			{dishes
 				?.filter((dish) => categoryId === dish.category_id)
 				.map((filteredDish) => (
-					<swiper-slide key={filteredDish.id}>
+					<swiper-slide key={filteredDish.dishes_id}>
 						<Card
 							isAdmin={isAdmin}
 							id={filteredDish.dishes_id}
