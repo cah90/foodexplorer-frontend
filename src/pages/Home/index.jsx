@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Wrapper, Hero, Section } from "./styles"
 import HomeImg from "../../assets/images/image-home.png"
 
@@ -31,9 +34,9 @@ export function Home() {
 				})
 				.catch((error) => {
 					if (error.response) {
-						alert(error.response.data.message)
+						toast.error(error.response.data.message)
 					} else {
-						alert("Não há pratos para serem exibidos.")
+						toast.error("Não há pratos para serem exibidos.")
 					}
 				})
 		} else {

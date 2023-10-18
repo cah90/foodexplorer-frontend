@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Container, Wrapper } from "./styles"
 
 import { PiReceiptLight } from "react-icons/pi"
@@ -34,9 +37,10 @@ export function Details() {
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error("Não há prato com esse ID")
+					console.log(error.response.data.message)
 				} else {
-					alert("Não há prato para ser exibido.")
+					toast.error("Não há prato para ser exibido.")
 				}
 			})
 	}, [])

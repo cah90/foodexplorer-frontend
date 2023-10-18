@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Container, Wrapper, InputFile, Select } from "./styles"
 
 import { FiUpload } from "react-icons/fi"
@@ -33,7 +36,7 @@ export function NewDish() {
 
 	function handleAddIngredient() {
 		if (!newIngredient) {
-			return alert("Digite um ingrediente antes de clicar em adicionar.")
+			return toast.info("Digite um ingrediente antes de clicar em adicionar.")
 		}
 		setIngredients((prevState) => [...prevState, newIngredient])
 
@@ -56,6 +59,18 @@ export function NewDish() {
 	async function handleNewDish() {
 		const formData = new FormData()
 
+		if (!imageFile) {
+			return toast.warn("Adicione uma imagem.")
+		}
+
+		if (!name || !category || !price || !description) {
+			return toast.warn("Preencha todos os campos.")
+		}
+
+		if (ingredients.length == 0) {
+			return toast.warn("Adicione pelo menos 1 ingrediente.")
+		}
+
 		formData.append("image", imageFile)
 		formData.append("name", name)
 		formData.append("category", category)
@@ -71,14 +86,14 @@ export function NewDish() {
 		await api
 			.post("/dishes", formData, { withCredentials: true })
 			.then(() => {
-				alert("Prato adicionado com sucesso!")
+				toast.success("Prato adicionado com sucesso!")
 				navigate("/")
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
 				} else {
-					alert("Houve um erro ao criar o prato.")
+					toast.error("Houve um erro ao criar o prato.")
 				}
 			})
 	}
@@ -91,9 +106,9 @@ export function NewDish() {
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
 				} else {
-					alert("Não há pratos para serem exibidos.")
+					toast.error("Não há pratos para serem exibidos.")
 				}
 			})
 	}, [])
@@ -144,6 +159,7 @@ export function NewDish() {
 							id="category"
 							onChange={(e) => setCategory(e.target.value)}
 						>
+							<option value="">Selecione uma categoria</option>
 							{categories.map((category) => (
 								<option key={category.id} value={category.id}>
 									{category.name}

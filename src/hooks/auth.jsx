@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { createContext, useContext, useState, useEffect } from "react"
 
 export const AuthContext = createContext({})
@@ -21,10 +24,12 @@ function AuthProvider({ children }) {
 
 			setData({ user })
 		} catch (error) {
-			if (error.response) {
-				alert(error.response.data.message)
+			if (!email || !password) {
+				toast.error("Digite todos os campos para fazer o login.")
+			} else if (error.response) {
+				toast.error(error.response.data.message)
 			} else {
-				alert("Não foi possível entrar.")
+				toast.error("Não foi possível entrar.")
 			}
 		}
 	}

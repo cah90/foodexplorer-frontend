@@ -79,6 +79,8 @@ export const Container = styled.div`
 		height: 467px;
 		padding: 2.4rem;
 
+		gap: 1.5rem;
+
 		.add-items {
 			display: flex;
 			flex-direction: row;
