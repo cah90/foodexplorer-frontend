@@ -20,7 +20,6 @@ export default createGlobalStyle`
   box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.CAKE_100};
 }
 
-<<<<<<< HEAD
 /* Width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -38,8 +37,6 @@ export default createGlobalStyle`
   border-radius: 5px;
 }
 
-=======
->>>>>>> master
 
 
 body {
