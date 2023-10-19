@@ -37,7 +37,7 @@ export const Container = styled.div`
 		}
 	}
 
-	> svg {
+	svg {
 		position: absolute;
 		top: 1.6rem;
 		right: 1.6rem;
@@ -48,7 +48,7 @@ export const Container = styled.div`
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 	}
 
-	> img {
+	img {
 		width: 8.8rem;
 	}
 
@@ -79,13 +79,15 @@ export const Container = styled.div`
 		height: 467px;
 		padding: 2.4rem;
 
+		gap: 1.5rem;
+
 		.add-items {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-evenly;
 		}
 
-		> img {
+		img {
 			width: 17.6rem;
 		}
 

@@ -2,7 +2,7 @@ import { Container } from "./styles"
 
 import { Input } from "../Input"
 
-export function InputField({ label, ...rest }) {
+export function InputField({ label, isImageLoaded, ...rest }) {
 	return (
 		<Container>
 			<label> {label} </label>

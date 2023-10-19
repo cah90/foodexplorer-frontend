@@ -14,7 +14,7 @@ You can check the final result of the app by clicking here - [Food Explorer APP]
 - Password as admin user: 123456
 
 > 🔥 **Attention** </br>
-> Because this app uses a free hosting provider, it will stop automatically when not user.
+> Because this app uses a free hosting provider, it will stop automatically when not used.
 > For accessing the app, you will need to wait a few seconds after making the login to have access to the site.
 
 ## Features
@@ -44,10 +44,8 @@ The main technologies used:
 
 ## Installation
 
-To have the Food Explorer Frontend running in your local, it is important to have the [Food Explorer API](https://github.com/cah90/foodexplorer-backend)
+To have the Food Explorer Frontend running in your local, it is important to first have the [Food Explorer API](https://github.com/cah90/foodexplorer-backend)
 already installed and running.
-
-Follow the instructions on [Food Explorer API](https://github.com/cah90/foodexplorer-backend).
 
 There are two ways of installing this project in your computer.
 

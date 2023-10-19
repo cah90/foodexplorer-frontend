@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Container, Wrapper, InputFile, Select } from "./styles"
 
 import { FiUpload } from "react-icons/fi"
@@ -36,7 +39,7 @@ export function EditDish() {
 
 	function handleAddIngredient() {
 		if (!newIngredient) {
-			return alert("Digite um ingrediente antes de clicar em adicionar.")
+			return toast.info("Digite um ingrediente antes de clicar em adicionar.")
 		}
 		setIngredients((prevState) => [...prevState, newIngredient])
 
@@ -63,14 +66,14 @@ export function EditDish() {
 			api
 				.delete(`/dishes/${id}`, { withCredentials: true })
 				.then(() => {
-					alert("Prato excluido com sucesso.")
+					toast.success("Prato excluido com sucesso.")
 					navigate("/")
 				})
 				.catch((error) => {
 					if (error.response) {
-						alert(error.response.data.message)
+						toast.error(error.response.data.message)
 					} else {
-						alert("Não foi possível excluir o prato.")
+						toast.error("Não foi possível excluir o prato.")
 					}
 				})
 		}
@@ -79,7 +82,17 @@ export function EditDish() {
 	function handleUpdateDish() {
 		const formData = new FormData()
 
-		formData.append("image", imageFile)
+		if (!name || !category || !price || !description) {
+			return toast.warn("Preencha todos os campos.")
+		}
+
+		if (ingredients.length == 0) {
+			return toast.warn("Adicione pelo menos 1 ingrediente.")
+		}
+
+		if (imageFile) {
+			formData.append("image", imageFile)
+		}
 		formData.append("name", name)
 		formData.append("category", category)
 		formData.append("ingredients", ingredients)
@@ -89,14 +102,14 @@ export function EditDish() {
 		api
 			.put(`/dishes/${id}`, formData, { withCredentials: true })
 			.then(() => {
-				alert("Prato editado com sucesso!")
+				toast.success("Prato editado com sucesso!")
 				navigate("/")
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
 				} else {
-					alert("Não foi possível editar o prato.")
+					toast.error("Não foi possível editar o prato.")
 				}
 			})
 	}
@@ -105,11 +118,11 @@ export function EditDish() {
 		api
 			.get(`/dishes/${id}`, { withCredentials: true })
 			.then((response) => {
-				const { name, category, price, description, ingredients, image } =
+				const { name, category_id, price, description, ingredients, image } =
 					response.data
 
 				setName(name)
-				setCategory(category)
+				setCategory(category_id)
 				setPrice(price.toFixed(2))
 				setDescription(description)
 				setIngredients(ingredients)
@@ -117,9 +130,9 @@ export function EditDish() {
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
 				} else {
-					alert("Não há prato para ser exibido.")
+					toast.error("Não há prato para ser exibido.")
 				}
 			})
 
@@ -130,9 +143,9 @@ export function EditDish() {
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
 				} else {
-					alert("Não há pratos para serem exibidos.")
+					toast.error("Não há pratos para serem exibidos.")
 				}
 			})
 	}, [])
@@ -185,9 +198,13 @@ export function EditDish() {
 							id="category>"
 							onChange={(e) => setCategory(e.target.value)}
 						>
-							{categories.map((category) => (
-								<option key={category.id} value={category.id}>
-									{category.name}
+							{categories.map((categ) => (
+								<option
+									key={categ.id}
+									value={categ.id}
+									selected={categ.id == category}
+								>
+									{categ.name}
 								</option>
 							))}
 						</Select>
@@ -196,13 +213,6 @@ export function EditDish() {
 					<div className="ingredients">
 						<label>Ingredientes</label>
 						<div className="ingredients-items">
-							{ingredients.map((ingredient, index) => (
-								<IngredientItem
-									key={String(index)}
-									value={ingredient}
-									onClick={() => handleRemoveIngredient(ingredient)}
-								/>
-							))}
 							<IngredientItem
 								$isNew
 								placeholder="Adicionar"
@@ -210,6 +220,13 @@ export function EditDish() {
 								onChange={(e) => setNewIngredient(e.target.value)}
 								onClick={handleAddIngredient}
 							/>
+							{ingredients.map((ingredient, index) => (
+								<IngredientItem
+									key={String(index)}
+									value={ingredient}
+									onClick={() => handleRemoveIngredient(ingredient)}
+								/>
+							))}
 						</div>
 					</div>
 

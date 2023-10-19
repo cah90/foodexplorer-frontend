@@ -1,3 +1,6 @@
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Container, Form } from "./styles"
 
 import { Link, useNavigate } from "react-router-dom"
@@ -19,7 +22,7 @@ export function SignUp() {
 
 	function handleSignUp() {
 		if (!name || !email || !password) {
-			return alert("Preencha todos os campos!")
+			return toast.error("Preencha todos os campos.")
 		}
 
 		setLoading(true)
@@ -27,14 +30,16 @@ export function SignUp() {
 		api
 			.post("/users", { name, email, password })
 			.then(() => {
-				alert("Usuário cadastrado com sucesso!")
+				toast.success("Usuário cadastrado com sucesso!")
 				navigate("/")
 			})
 			.catch((error) => {
 				if (error.response) {
-					alert(error.response.data.message)
+					toast.error(error.response.data.message)
+					setLoading(false)
 				} else {
-					alert("Não foi possível cadastrar.")
+					toast.error("Não foi possível cadastrar.")
+					setLoading(false)
 				}
 			})
 	}
