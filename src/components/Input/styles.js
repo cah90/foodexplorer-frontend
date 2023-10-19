@@ -11,6 +11,11 @@ export const Container = styled.div`
 
 	border-radius: 0.5rem;
 
+	&:focus-within {
+		outline: transparent;
+		box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.CAKE_100};
+	}
+
 	> svg {
 		color: ${({ theme }) => theme.COLORS.LIGHT_500};
 		font-size: 2.4rem;
@@ -30,5 +35,10 @@ export const Container = styled.div`
 		&::placeholder {
 			color: ${({ theme }) => theme.COLORS.LIGHT_500};
 		}
+	}
+
+	> input:focus {
+		outline: initial;
+		box-shadow: initial;
 	}
 `
