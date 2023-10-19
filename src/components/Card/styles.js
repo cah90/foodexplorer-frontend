@@ -37,7 +37,7 @@ export const Container = styled.div`
 		}
 	}
 
-	> svg {
+	svg {
 		position: absolute;
 		top: 1.6rem;
 		right: 1.6rem;
@@ -48,7 +48,7 @@ export const Container = styled.div`
 		color: ${({ theme }) => theme.COLORS.LIGHT_300};
 	}
 
-	> img {
+	img {
 		width: 8.8rem;
 	}
 
@@ -87,7 +87,7 @@ export const Container = styled.div`
 			justify-content: space-evenly;
 		}
 
-		> img {
+		img {
 			width: 17.6rem;
 		}
 

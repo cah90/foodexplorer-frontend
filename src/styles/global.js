@@ -20,6 +20,8 @@ export default createGlobalStyle`
   box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.CAKE_100};
 }
 
+
+
 body {
   background-color: ${({ theme }) => theme.COLORS.DARK_400};
   
