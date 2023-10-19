@@ -30,6 +30,20 @@ export const Container = styled.div`
 			height: 4.8rem;
 
 			margin: 0;
+
+			animation: img 1s ease-in 0s 1 normal none;
+
+			@keyframes img {
+				0% {
+					opacity: 0;
+					transform: translateY(-250px);
+				}
+
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 		}
 
 		.wrapper {
@@ -38,6 +52,20 @@ export const Container = styled.div`
 			padding: 6.4rem;
 			border-radius: 1.6rem;
 			background-color: ${({ theme }) => theme.COLORS.DARK_700};
+
+			animation: form 1s ease-in 0s 1 normal none;
+
+			@keyframes form {
+				0% {
+					opacity: 0;
+					transform: translateY(250px);
+				}
+
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 		}
 	}
 `
