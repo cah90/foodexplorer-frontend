@@ -109,7 +109,10 @@ export function Slider({ categoryId, dishes }) {
 							img={`${api.defaults.baseURL}/files/${filteredDish.image}`}
 							name={filteredDish.dishes_name}
 							description={filteredDish.description}
-							price={filteredDish.price}
+							price={filteredDish.price.toLocaleString("pt-BR", {
+								style: "currency",
+								currency: "BRL",
+							})}
 							buttonTitle="incluir"
 						/>
 					</swiper-slide>

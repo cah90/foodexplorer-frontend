@@ -47,7 +47,7 @@ export function Card({
 				<Link to={`details/${id}`}>{name} &gt;</Link>
 			</h3>
 			<p>{description}</p>
-			<span>R$ {price}</span>
+			<span>{price}</span>
 
 			{!isAdmin && (
 				<div className="add-items">
