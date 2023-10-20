@@ -3,7 +3,7 @@ import { Container } from "./styles"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { BsPencil, BsPencilFill } from "react-icons/bs"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from "../Button"
 import { Counter } from "../Counter"
@@ -26,14 +26,16 @@ export function Card({
 		setFavorite(!favorite)
 	}
 
+	const navigate = useNavigate()
+
+	const redirectToEdit = () => {
+		navigate(`edit/${id}`)
+	}
+
 	return (
 		<Container>
 			{isAdmin ? (
-				favorite ? (
-					<BsPencilFill onClick={handleFavorite} />
-				) : (
-					<BsPencil onClick={handleFavorite} />
-				)
+				<BsPencil onClick={redirectToEdit} />
 			) : favorite ? (
 				<AiFillHeart className="favorite-filled" onClick={handleFavorite} />
 			) : (
