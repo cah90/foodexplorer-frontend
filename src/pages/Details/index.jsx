@@ -84,7 +84,13 @@ export function Details() {
 									/>
 									<Button
 										icon={PiReceiptLight}
-										title={`pedir - R$ ${count * dish.price}`}
+										title={`pedir - ${(count * dish.price).toLocaleString(
+											"pt-BR",
+											{
+												style: "currency",
+												currency: "BRL",
+											}
+										)}`}
 									/>
 								</div>
 							)}
